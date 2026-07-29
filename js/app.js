@@ -76,6 +76,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
     typeEffect();
 
+  // ==============================
+// Skills Animation
+// ==============================
+
+
+const skillBars =
+document.querySelectorAll(".skill-progress");
+
+
+const skillsObserver =
+new IntersectionObserver(entries=>{
+
+
+entries.forEach(entry=>{
+
+
+if(entry.isIntersecting){
+
+
+const bar = entry.target;
+
+
+bar.style.width =
+bar.dataset.progress + "%";
+
+
+}
+
+
+});
+
+
+},{
+threshold:0.5
+});
+
+
+
+skillBars.forEach(bar=>{
+
+skillsObserver.observe(bar);
+
+});
+
     // -----------------------------
     // Smooth Navigation
     // -----------------------------
