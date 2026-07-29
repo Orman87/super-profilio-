@@ -38,6 +38,7 @@ learn new techniques and improve my creativity.`,
     whatsapp: "https://wa.me/256704291969",
     telegram: "https://t.me/theking256",
     tiktok: "https://tiktok.com/@drepressed_boi.256",
+    email: "kubuyaorman87@gmail.com",
     instagram: "https://www.instagram.com/p/C3E0jkSIjDWIwpQ6rCa8LaE-O6sgMx9Zq8sgmg0/?igsh=ZjFkYzMzMDQzZg=="
   },
 
