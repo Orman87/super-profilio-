@@ -33,6 +33,43 @@ navLinks.classList.toggle("open");
 
 });
 
+  const sections =
+document.querySelectorAll("section");
+
+const links =
+document.querySelectorAll("#navLinks a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const top=
+section.offsetTop-120;
+
+if(window.scrollY>=top){
+
+current=section.id;
+
+}
+
+});
+
+links.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
     // -----------------------------
     // Loader
     // -----------------------------
