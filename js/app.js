@@ -70,6 +70,67 @@ link.classList.add("active");
 
 });
 
+
+  /*==============================
+BOOT SCREEN
+==============================*/
+
+const bootLines =
+document.querySelectorAll(".boot-console p");
+
+const progress =
+document.getElementById("progressBar");
+
+const percent =
+document.getElementById("percent");
+
+let current = 0;
+
+bootLines.forEach((line,index)=>{
+
+setTimeout(()=>{
+
+line.style.opacity="1";
+
+line.style.transform="translateX(0)";
+
+line.style.transition=".4s";
+
+},index*350);
+
+});
+
+const loaderInterval =
+setInterval(()=>{
+
+current++;
+
+progress.style.width=current+"%";
+
+percent.textContent=current+"%";
+
+if(current>=100){
+
+clearInterval(loaderInterval);
+
+setTimeout(()=>{
+
+loader.style.opacity="0";
+
+loader.style.pointerEvents="none";
+
+setTimeout(()=>{
+
+loader.remove();
+
+},600);
+
+},500);
+
+}
+
+},30);
+
     // -----------------------------
     // Loader
     // -----------------------------
