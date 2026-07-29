@@ -24,6 +24,43 @@ grid-template-columns:1fr;
 
 }
 
+@media(max-width:768px){
+
+.menu-btn{
+
+display:block;
+
+}
+
+#navLinks{
+
+position:absolute;
+
+top:70px;
+
+left:0;
+
+width:100%;
+
+display:none;
+
+flex-direction:column;
+
+padding:20px;
+
+border-radius:18px;
+
+background:rgba(10,15,25,.95);
+
+}
+
+#navLinks.open{
+
+display:flex;
+
+}
+
+}
 
 /* Phones */
 @media (max-width:768px){
