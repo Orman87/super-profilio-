@@ -1962,6 +1962,26 @@ box-shadow:0 0 40px rgba(0,212,255,.15);
 
 }
 
+.boot-console p:last-child{
+
+color:#00d4ff;
+
+font-weight:bold;
+
+animation:blink 1s infinite;
+
+}
+
+@keyframes blink{
+
+50%{
+
+opacity:.6;
+
+}
+
+}
+
 .boot-logo{
 
 color:#00d4ff;
