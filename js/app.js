@@ -5,6 +5,34 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    /*==============================
+ NAVBAR
+==============================*/
+
+const navbar =
+document.querySelector(".navbar");
+
+window.addEventListener("scroll",()=>{
+
+navbar.classList.toggle(
+"scrolled",
+window.scrollY>40
+);
+
+});
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const navLinks =
+document.getElementById("navLinks");
+
+menuBtn.addEventListener("click",()=>{
+
+navLinks.classList.toggle("open");
+
+});
+
     // -----------------------------
     // Loader
     // -----------------------------
