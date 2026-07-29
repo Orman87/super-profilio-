@@ -938,7 +938,121 @@ font-size:14px;
 
 }
 
+/*=====================================
+BOOT SCREEN
+=====================================*/
 
+#loader{
+
+position:fixed;
+
+inset:0;
+
+background:#030712;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:999999;
+
+font-family:"Courier New",monospace;
+
+}
+
+.boot-screen{
+
+width:min(92%,700px);
+
+background:rgba(255,255,255,.04);
+
+border:1px solid rgba(0,212,255,.25);
+
+border-radius:18px;
+
+padding:35px;
+
+box-shadow:0 0 40px rgba(0,212,255,.15);
+
+}
+
+.boot-logo{
+
+color:#00d4ff;
+
+font-size:2rem;
+
+margin-bottom:30px;
+
+}
+
+.boot-logo span{
+
+font-size:1rem;
+
+opacity:.7;
+
+margin-left:10px;
+
+}
+
+.boot-console{
+
+height:240px;
+
+overflow:hidden;
+
+}
+
+.boot-console p{
+
+opacity:0;
+
+color:#7CFC98;
+
+margin:10px 0;
+
+transform:translateX(-20px);
+
+}
+
+.progress{
+
+margin-top:25px;
+
+height:10px;
+
+background:#111827;
+
+border-radius:100px;
+
+overflow:hidden;
+
+}
+
+#progressBar{
+
+width:0;
+
+height:100%;
+
+background:linear-gradient(90deg,#00d4ff,#7c3aed);
+
+}
+
+.boot-percent{
+
+margin-top:15px;
+
+text-align:right;
+
+color:#00d4ff;
+
+font-weight:bold;
+
+}
 
 /* Hover effect */
 
