@@ -72,6 +72,149 @@ transition:.4s;
 }
 
 /*==============================
+ SOCIAL MEDIA SECTION
+==============================*/
+
+
+.section-title{
+
+text-align:center;
+
+margin-bottom:50px;
+
+}
+
+
+.section-title h2{
+
+font-size:2.5rem;
+
+color:var(--primary);
+
+}
+
+
+.section-title p{
+
+color:var(--text-light);
+
+}
+
+
+
+.social-container{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
+
+gap:25px;
+
+}
+
+
+
+.social-card{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+padding:25px;
+
+border-radius:20px;
+
+background:var(--surface);
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.35s;
+
+}
+
+
+
+.social-card i{
+
+font-size:40px;
+
+}
+
+
+
+.social-card h3{
+
+margin-bottom:5px;
+
+}
+
+
+.social-card p{
+
+color:var(--text-light);
+
+font-size:14px;
+
+}
+
+
+
+/* Hover effect */
+
+.social-card:hover{
+
+transform:
+translateY(-10px);
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.3);
+
+border-color:var(--primary);
+
+}
+
+
+
+/* Platform colors */
+
+.tiktok i{
+
+color:#00f2ea;
+
+}
+
+
+.instagram i{
+
+color:#e1306c;
+
+}
+
+
+.telegram i{
+
+color:#229ed9;
+
+}
+
+
+.whatsapp i{
+
+color:#25d366;
+
+}
+
+
+.email i{
+
+color:#f59e0b;
+
+}
+
+/*==============================
  MUSIC CONTROL BUTTON
 ==============================*/
 
