@@ -38,6 +38,172 @@
 }
 
 /*==============================
+ TECH BACKGROUND ANIMATION
+==============================*/
+
+
+#tech-background{
+
+position:fixed;
+
+inset:0;
+
+overflow:hidden;
+
+pointer-events:none;
+
+z-index:-1;
+
+opacity:.35;
+
+}
+
+
+
+#tech-background span{
+
+position:absolute;
+
+font-family:
+"Courier New",
+monospace;
+
+font-size:22px;
+
+color:var(--primary);
+
+animation:
+floatCode 12s linear infinite;
+
+}
+
+
+
+/* Different positions */
+
+#tech-background span:nth-child(1){
+
+left:10%;
+
+animation-delay:0s;
+
+}
+
+
+
+#tech-background span:nth-child(2){
+
+left:30%;
+
+animation-delay:2s;
+
+}
+
+
+
+#tech-background span:nth-child(3){
+
+left:50%;
+
+animation-delay:4s;
+
+}
+
+
+
+#tech-background span:nth-child(4){
+
+left:70%;
+
+animation-delay:1s;
+
+}
+
+
+
+#tech-background span:nth-child(5){
+
+left:85%;
+
+animation-delay:3s;
+
+}
+
+
+
+#tech-background span:nth-child(6){
+
+left:20%;
+
+animation-delay:5s;
+
+}
+
+
+
+#tech-background span:nth-child(7){
+
+left:60%;
+
+animation-delay:6s;
+
+}
+
+
+
+#tech-background span:nth-child(8){
+
+left:90%;
+
+animation-delay:7s;
+
+}
+
+
+
+
+@keyframes floatCode{
+
+
+0%{
+
+transform:
+translateY(110vh)
+rotate(0deg);
+
+opacity:0;
+
+}
+
+
+20%{
+
+opacity:1;
+
+}
+
+
+80%{
+
+opacity:1;
+
+}
+
+
+100%{
+
+transform:
+translateY(-20vh)
+rotate(360deg);
+
+opacity:0;
+
+}
+
+
+}
+
+/*==============================
  FOOTER
 ==============================*/
 
