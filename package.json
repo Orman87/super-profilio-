@@ -1,0 +1,10 @@
+{
+  "name": "orman-portfolio",
+  "version": "1.0.0",
+  "description": "Official portfolio website of K • ORMAN",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  }
+}
