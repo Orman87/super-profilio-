@@ -257,6 +257,83 @@ skillsObserver.observe(bar);
 
 });
 
+  const badge = document.getElementById("featuredBadge");
+
+const container =
+document.getElementById("fireworks-container");
+
+badge.addEventListener("click",()=>{
+
+const duration=10000;
+
+const end=Date.now()+duration;
+
+const interval=setInterval(()=>{
+
+for(let i=0;i<15;i++){
+
+const particle=
+document.createElement("div");
+
+particle.className="firework";
+
+particle.style.left=
+Math.random()*window.innerWidth+"px";
+
+particle.style.top=
+Math.random()*window.innerHeight+"px";
+
+particle.style.background=
+`hsl(${Math.random()*360},100%,60%)`;
+
+particle.style.setProperty(
+"--x",
+(Math.random()*300-150)+"px"
+);
+
+particle.style.setProperty(
+"--y",
+(Math.random()*300-150)+"px"
+);
+
+container.appendChild(particle);
+
+setTimeout(()=>{
+
+particle.remove();
+
+},1800);
+
+}
+
+const star=
+document.createElement("div");
+
+star.className="star";
+
+star.innerHTML="⭐";
+
+star.style.left=
+Math.random()*100+"vw";
+
+container.appendChild(star);
+
+setTimeout(()=>{
+
+star.remove();
+
+},3000);
+
+if(Date.now()>end){
+
+clearInterval(interval);
+
+}
+
+},250);
+
+});
+
     // -----------------------------
     // Smooth Navigation
     // -----------------------------
