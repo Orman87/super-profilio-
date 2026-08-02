@@ -70,6 +70,22 @@ link.classList.add("active");
 
 });
 
+  function updateClock(){
+
+const now=new Date();
+
+document.getElementById("live-time").textContent=
+now.toLocaleTimeString();
+
+document.getElementById("live-date").textContent=
+now.toDateString();
+
+}
+
+updateClock();
+
+setInterval(updateClock,1000);
+
 
   /*==============================
 BOOT SCREEN
