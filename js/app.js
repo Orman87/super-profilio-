@@ -135,6 +135,24 @@ battery.addEventListener("chargingchange",updateBattery);
   }
 
 
+
+let visitors=localStorage.getItem("visitorCount");
+
+if(!visitors){
+
+visitors=1;
+
+}else{
+
+visitors=parseInt(visitors)+1;
+
+}
+
+localStorage.setItem("visitorCount",visitors);
+
+document.getElementById("visitor-count").textContent=visitors;
+
+
   /*==============================
 BOOT SCREEN
 ==============================*/
