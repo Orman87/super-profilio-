@@ -109,6 +109,61 @@ border-radius:0 0 18px 18px;
 
 }
 
+
+/* Tablets */
+@media (max-width:992px){
+
+...
+}
+
+/* Phones */
+@media (max-width:768px){
+
+/* Existing responsive styles */
+
+...
+
+/* 👇 Add Step 4 here */
+
+.navbar{
+
+padding:12px 18px;
+
+}
+
+.logo{
+
+font-size:1rem;
+
+}
+
+.hero{
+
+padding-top:130px;
+
+}
+
+#navLinks{
+
+width:100%;
+
+left:0;
+
+right:0;
+
+border-radius:0 0 18px 18px;
+
+}
+
+}
+
+/* Small Phones */
+@media (max-width:480px){
+
+...
+
+}
+
 /* Phones */
 @media (max-width:768px){
 
