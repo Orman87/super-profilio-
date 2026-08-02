@@ -85,6 +85,29 @@ now.toDateString();
 updateClock();
 
 setInterval(updateClock,1000);
+  
+
+  if("getBattery" in navigator){
+
+navigator.getBattery().then(battery=>{
+
+function updateBattery(){
+
+document.getElementById("battery-level").textContent=
+
+`${Math.round(battery.level*100)}% ${battery.charging?"⚡":""}`;
+
+}
+
+updateBattery();
+
+battery.addEventListener("levelchange",updateBattery);
+
+battery.addEventListener("chargingchange",updateBattery);
+
+});
+
+  }
 
 
   /*==============================
