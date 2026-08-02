@@ -1,0 +1,85 @@
+/*=========================================
+  K • ORMAN Portfolio
+  Animation Library
+=========================================*/
+
+/*==============================
+TYPING CURSOR
+app.js already types text into #typing —
+this just adds the blinking cursor after it
+==============================*/
+
+#typing::after {
+    content: "|";
+    margin-left: 2px;
+    color: var(--primary);
+    animation: typingBlink .8s steps(1) infinite;
+}
+
+@keyframes typingBlink {
+    50% { opacity: 0; }
+}
+
+/*==============================
+CARD ENTRANCE ANIMATION
+fades + slides each card up on load,
+staggered so they cascade in one by one
+==============================*/
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card,
+.skill-card,
+.about-card,
+.social-card,
+.stat-card,
+.timeline-item {
+    animation: fadeInUp .7s ease both;
+}
+
+.project-card:nth-child(2),
+.skill-card:nth-child(2),
+.social-card:nth-child(2),
+.stat-card:nth-child(2),
+.timeline-item:nth-child(2) { animation-delay: .1s; }
+
+.project-card:nth-child(3),
+.skill-card:nth-child(3),
+.social-card:nth-child(3),
+.stat-card:nth-child(3),
+.timeline-item:nth-child(3) { animation-delay: .2s; }
+
+.project-card:nth-child(4),
+.skill-card:nth-child(4),
+.social-card:nth-child(4),
+.stat-card:nth-child(4),
+.timeline-item:nth-child(4) { animation-delay: .3s; }
+
+.project-card:nth-child(5),
+.skill-card:nth-child(5),
+.social-card:nth-child(5) { animation-delay: .4s; }
+
+.project-card:nth-child(6),
+.skill-card:nth-child(6) { animation-delay: .5s; }
+
+/* respect users who've asked for less motion */
+@media (prefers-reduced-motion: reduce) {
+    #typing::after,
+    .project-card,
+    .skill-card,
+    .about-card,
+    .social-card,
+    .stat-card,
+    .timeline-item {
+        animation: none;
+    }
+}
