@@ -131,6 +131,17 @@ loader.remove();
 
 },30);
 
+
+  const settingsBtn = document.querySelector(".settings-btn");
+
+const themePanel = document.querySelector(".theme-panel");
+
+settingsBtn.addEventListener("click", () => {
+
+    themePanel.classList.toggle("open");
+
+});
+
     // -----------------------------
     // Loader
     // -----------------------------
