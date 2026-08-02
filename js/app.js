@@ -21,6 +21,31 @@ window.scrollY>40
 
 });
 
+
+  function updateNetwork(){
+
+const status=document.getElementById("network-status");
+
+if(navigator.onLine){
+
+status.textContent="🟢 Online";
+
+}else{
+
+status.textContent="🔴 Offline";
+
+}
+
+}
+
+window.addEventListener("online",updateNetwork);
+
+window.addEventListener("offline",updateNetwork);
+
+updateNetwork();
+
+  
+
 const menuBtn =
 document.getElementById("menuBtn");
 
