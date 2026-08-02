@@ -45,6 +45,14 @@ scroll-padding-top:90px;
 
 }
 
+.container{
+
+width:min(92%,1200px);
+
+margin:auto;
+
+}
+
 .project-buttons{
 
 display:flex;
