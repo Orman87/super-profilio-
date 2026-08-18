@@ -54,6 +54,14 @@ margin:auto;
 }
 
 
+#visitor-count {
+    font-weight: 900;
+    font-size: 1.3rem;
+    font-variant-numeric: tabular-nums;
+    transition: transform 0.15s ease;
+}
+
+
 #fireworks-container{
 
 position:fixed;
