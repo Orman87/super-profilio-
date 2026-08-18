@@ -488,7 +488,7 @@ async function countVisitor() {
 
         // Increment ORMAN-TECH / orma-site
         const result =
-            await counter.up("orma-site");
+            await counter.up("first-counter-5160");
 
         console.log(
             "Visitor counted:",
