@@ -402,26 +402,24 @@ clearInterval(interval);
 });
 
 
-// ========================================
+
+// ==========================================
 // ORMAN-TECH VISITOR COUNTER
 // Counter: orma-site
-// Counts when visitor reaches the card
-// ========================================
+// ==========================================
 
-const visitorCard = document.querySelector(".visitor-card");
-const visitorCount = document.getElementById("visitor-count");
+const visitorCard =
+    document.querySelector(".visitor-card");
+
+const visitorCount =
+    document.getElementById("visitor-count");
 
 let visitorAlreadyCounted = false;
 
 
-// CounterAPI details
-const COUNTER_WORKSPACE = "ORMAN-TECH";
-const COUNTER_NAME = "orma-site";
-
-
-// ========================================
+// ==========================================
 // FAST NUMBER ANIMATION
-// ========================================
+// ==========================================
 
 function animateVisitorCount(target) {
 
@@ -439,7 +437,6 @@ function animateVisitorCount(target) {
             1
         );
 
-        // Smooth fast animation
         const eased =
             1 - Math.pow(1 - progress, 3);
 
@@ -457,6 +454,7 @@ function animateVisitorCount(target) {
 
             visitorCount.textContent =
                 target.toLocaleString();
+
         }
     }
 
@@ -464,13 +462,12 @@ function animateVisitorCount(target) {
 }
 
 
-// ========================================
-// COUNT THE VISITOR
-// ========================================
+// ==========================================
+// COUNT VISITOR
+// ==========================================
 
 async function countVisitor() {
 
-    // Prevent counting the same page session twice
     if (
         visitorAlreadyCounted ||
         !visitorCount
@@ -480,60 +477,54 @@ async function countVisitor() {
 
     visitorAlreadyCounted = true;
 
-    // Start from zero
     visitorCount.textContent = "0";
 
     try {
 
-        const url =
-            `https://api.counterapi.dev/v2/` +
-            `${encodeURIComponent(COUNTER_WORKSPACE)}/` +
-            `${encodeURIComponent(COUNTER_NAME)}/up`;
+        // CounterAPI V2
+        const counter = new Counter({
+            workspace: "ORMAN-TECH"
+        });
 
-        const response = await fetch(url);
+        // Increment ORMAN-TECH / orma-site
+        const result =
+            await counter.up("orma-site");
 
-        if (!response.ok) {
-            throw new Error(
-                `Counter request failed: ${response.status}`
-            );
-        }
-
-        const data = await response.json();
-
-        // Get the new total
-        const total = Number(
-            data.value ??
-            data.data?.value ??
-            data.count ??
-            0
+        console.log(
+            "Visitor counted:",
+            result
         );
 
-        // Animate 0 → actual total
+        // CounterAPI returns the current value
+        const total =
+            Number(result.value) || 0;
+
         animateVisitorCount(total);
 
     } catch (error) {
 
         console.error(
-            "Visitor counter error:",
+            "❌ Visitor counter failed:",
             error
         );
 
         visitorCount.textContent = "—";
 
-        // Allow another attempt if the request failed
+        // Allow another attempt if request failed
         visitorAlreadyCounted = false;
     }
 }
 
 
-// ========================================
-// TRIGGER WHEN VISITOR REACHES VIEWS
-// ========================================
+// ==========================================
+// WAIT UNTIL VIEWS SECTION IS REACHED
+// ==========================================
 
 if (visitorCard) {
 
     const visitorObserver =
         new IntersectionObserver(
+
             (entries) => {
 
                 entries.forEach((entry) => {
@@ -543,24 +534,31 @@ if (visitorCard) {
                         !visitorAlreadyCounted
                     ) {
 
+                        console.log(
+                            "👁 Visitor reached Views section"
+                        );
+
                         countVisitor();
 
-                        // Stop watching after triggering
                         visitorObserver.unobserve(
                             visitorCard
                         );
+
                     }
+
                 });
 
             },
+
             {
-                // Trigger when 50% of the card is visible
                 threshold: 0.5
             }
+
         );
 
     visitorObserver.observe(visitorCard);
-          }
+
+           }
   
 
     // -----------------------------
