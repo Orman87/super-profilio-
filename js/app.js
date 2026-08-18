@@ -401,6 +401,168 @@ clearInterval(interval);
 
 });
 
+
+// ========================================
+// ORMAN-TECH VISITOR COUNTER
+// Counter: orma-site
+// Counts when visitor reaches the card
+// ========================================
+
+const visitorCard = document.querySelector(".visitor-card");
+const visitorCount = document.getElementById("visitor-count");
+
+let visitorAlreadyCounted = false;
+
+
+// CounterAPI details
+const COUNTER_WORKSPACE = "ORMAN-TECH";
+const COUNTER_NAME = "orma-site";
+
+
+// ========================================
+// FAST NUMBER ANIMATION
+// ========================================
+
+function animateVisitorCount(target) {
+
+    if (!visitorCount) return;
+
+    target = Number(target) || 0;
+
+    const duration = 650;
+    const startTime = performance.now();
+
+    function animate(currentTime) {
+
+        const progress = Math.min(
+            (currentTime - startTime) / duration,
+            1
+        );
+
+        // Smooth fast animation
+        const eased =
+            1 - Math.pow(1 - progress, 3);
+
+        const currentNumber =
+            Math.floor(eased * target);
+
+        visitorCount.textContent =
+            currentNumber.toLocaleString();
+
+        if (progress < 1) {
+
+            requestAnimationFrame(animate);
+
+        } else {
+
+            visitorCount.textContent =
+                target.toLocaleString();
+        }
+    }
+
+    requestAnimationFrame(animate);
+}
+
+
+// ========================================
+// COUNT THE VISITOR
+// ========================================
+
+async function countVisitor() {
+
+    // Prevent counting the same page session twice
+    if (
+        visitorAlreadyCounted ||
+        !visitorCount
+    ) {
+        return;
+    }
+
+    visitorAlreadyCounted = true;
+
+    // Start from zero
+    visitorCount.textContent = "0";
+
+    try {
+
+        const url =
+            `https://api.counterapi.dev/v2/` +
+            `${encodeURIComponent(COUNTER_WORKSPACE)}/` +
+            `${encodeURIComponent(COUNTER_NAME)}/up`;
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(
+                `Counter request failed: ${response.status}`
+            );
+        }
+
+        const data = await response.json();
+
+        // Get the new total
+        const total = Number(
+            data.value ??
+            data.data?.value ??
+            data.count ??
+            0
+        );
+
+        // Animate 0 → actual total
+        animateVisitorCount(total);
+
+    } catch (error) {
+
+        console.error(
+            "Visitor counter error:",
+            error
+        );
+
+        visitorCount.textContent = "—";
+
+        // Allow another attempt if the request failed
+        visitorAlreadyCounted = false;
+    }
+}
+
+
+// ========================================
+// TRIGGER WHEN VISITOR REACHES VIEWS
+// ========================================
+
+if (visitorCard) {
+
+    const visitorObserver =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (
+                        entry.isIntersecting &&
+                        !visitorAlreadyCounted
+                    ) {
+
+                        countVisitor();
+
+                        // Stop watching after triggering
+                        visitorObserver.unobserve(
+                            visitorCard
+                        );
+                    }
+                });
+
+            },
+            {
+                // Trigger when 50% of the card is visible
+                threshold: 0.5
+            }
+        );
+
+    visitorObserver.observe(visitorCard);
+          }
+  
+
     // -----------------------------
     // Smooth Navigation
     // -----------------------------
