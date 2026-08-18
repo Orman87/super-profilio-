@@ -402,11 +402,9 @@ clearInterval(interval);
 });
 
 
-
-// ==========================================
+// ========================================
 // ORMAN-TECH VISITOR COUNTER
-// Counter: orma-site
-// ==========================================
+// ========================================
 
 const visitorCard =
     document.querySelector(".visitor-card");
@@ -417,9 +415,21 @@ const visitorCount =
 let visitorAlreadyCounted = false;
 
 
-// ==========================================
-// FAST NUMBER ANIMATION
-// ==========================================
+// ========================================
+// COUNTERAPI CONFIGURATION
+// ========================================
+
+const counter = new Counter({
+    workspace: "ORMAN-TECH"
+});
+
+const COUNTER_NAME =
+    "first-counter-5160";
+
+
+// ========================================
+// FAST COUNTING ANIMATION
+// ========================================
 
 function animateVisitorCount(target) {
 
@@ -454,7 +464,6 @@ function animateVisitorCount(target) {
 
             visitorCount.textContent =
                 target.toLocaleString();
-
         }
     }
 
@@ -462,9 +471,9 @@ function animateVisitorCount(target) {
 }
 
 
-// ==========================================
+// ========================================
 // COUNT VISITOR
-// ==========================================
+// ========================================
 
 async function countVisitor() {
 
@@ -481,21 +490,14 @@ async function countVisitor() {
 
     try {
 
-        // CounterAPI V2
-        const counter = new Counter({
-            workspace: "ORMAN-TECH"
-        });
-
-        // Increment ORMAN-TECH / orma-site
         const result =
-            await counter.up("first-counter-5160");
+            await counter.up(COUNTER_NAME);
 
         console.log(
-            "Visitor counted:",
+            "✅ Visitor counted:",
             result
         );
 
-        // CounterAPI returns the current value
         const total =
             Number(result.value) || 0;
 
@@ -504,21 +506,20 @@ async function countVisitor() {
     } catch (error) {
 
         console.error(
-            "❌ Visitor counter failed:",
+            "❌ CounterAPI error:",
             error
         );
 
         visitorCount.textContent = "—";
 
-        // Allow another attempt if request failed
         visitorAlreadyCounted = false;
     }
 }
 
 
-// ==========================================
-// WAIT UNTIL VIEWS SECTION IS REACHED
-// ==========================================
+// ========================================
+// COUNT WHEN VIEWS CARD APPEARS
+// ========================================
 
 if (visitorCard) {
 
@@ -535,7 +536,7 @@ if (visitorCard) {
                     ) {
 
                         console.log(
-                            "👁 Visitor reached Views section"
+                            "👁 Views section reached"
                         );
 
                         countVisitor();
@@ -543,7 +544,6 @@ if (visitorCard) {
                         visitorObserver.unobserve(
                             visitorCard
                         );
-
                     }
 
                 });
@@ -553,13 +553,17 @@ if (visitorCard) {
             {
                 threshold: 0.5
             }
-
         );
 
     visitorObserver.observe(visitorCard);
 
-           }
-  
+} else {
+
+    console.error(
+        "❌ .visitor-card was not found in index.html"
+    );
+}
+
 
     // -----------------------------
     // Smooth Navigation
