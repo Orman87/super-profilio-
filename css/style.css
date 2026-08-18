@@ -155,6 +155,257 @@ opacity:0;
 }
 
 }
+
+
+/* ========================================
+   CONTROLS CONTAINER
+   ======================================== */
+.controls-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+}
+
+.control-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+    border-color: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+/* ========================================
+   SYSTEM STATUS BAR
+   ======================================== */
+.system-status-bar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    position: sticky;
+    top: 70px;
+    z-index: 99;
+}
+
+.system-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #a0aec0;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.system-item span {
+    color: #00d4ff;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.hero-section {
+    padding: 40px 20px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-banner {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 30px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.hero-cover {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-wrapper {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #00d4ff;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+    background: #0a0a0a;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    text-align: center;
+    padding-top: 60px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.hero-content h1 span {
+    color: #00d4ff;
+    background: linear-gradient(135deg, #00d4ff, #7b2ffc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #a0aec0;
+    margin-bottom: 20px;
+}
+
+.hero-content h2 span {
+    color: #00d4ff;
+    font-weight: 600;
+}
+
+.hero-content p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #a0aec0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #00d4ff, #7b2ffc);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+}
+
+.secondary-btn {
+    border: 2px solid #00d4ff;
+    color: #00d4ff;
+    background: transparent;
+}
+
+.secondary-btn:hover {
+    background: rgba(0, 212, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    .system-status-bar {
+        gap: 15px;
+        padding: 8px 15px;
+        top: 60px;
+        font-size: 12px;
+    }
+
+    .system-item {
+        font-size: 11px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .controls-container {
+        top: 70px;
+        right: 10px;
+    }
+
+    .control-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .system-status-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5px 20px;
+        padding: 8px 12px;
+    }
+
+    .system-item {
+        font-size: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+
+    .profile-wrapper {
+        width: 90px;
+        height: 90px;
+        bottom: -40px;
+    }
+
+    .hero-cover {
+        height: 180px;
+    }
+  }
 /*==================================
 TOUCH OPTIMIZATION
 ==================================*/
