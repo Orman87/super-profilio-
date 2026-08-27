@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="assets/icons/favicon.jpg">
+    
+    <!-- Website Identity -->
+    <title>K • ORMAN | Web Designer & Developer</title>
+
+    <meta name="description" content="K • ORMAN is a web designer and developer creating modern, responsive and interactive websites using HTML, CSS and JavaScript.">
+    <meta name="keywords" content="K ORMAN, web designer, frontend developer, HTML, CSS, JavaScript, Uganda developer, portfolio">
+    <meta name="author" content="KING ORMAN">
+
+    <!-- Mobile Support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#00d4ff">
+
+    <!-- Social Sharing Preview -->
+    <meta property="og:title" content="K • ORMAN | Web Designer">
+    <meta property="og:description" content="Explore my projects, skills and journey as a developer.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://files.catbox.moe/q2haxu.jpg">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+
+    <div id="tech-background">
+        <span>{ }</span>
+        <span>&lt;/&gt;</span>
+        <span>01</span>
+        <span>JS</span>
+        <span>CSS</span>
+        <span>HTML</span>
+        <span>;</span>
+        <span>()</span>
+    </div>
+
+    <!--============================
+    CONTROLS - Consolidated Panel
+    =============================-->
+    <div class="controls-container">
+        <!-- Theme Button -->
+        <button id="settingsBtn" class="control-btn settings-btn" aria-label="Theme Settings">
+            <i class="fa-solid fa-gear"></i>
+        </button>
+
+        <!-- Music Toggle -->
+        <button id="musicToggle" class="control-btn music-toggle" aria-label="Music Controls">
+            🎵
+        </button>
+    </div>
+
+    <!-- Theme Panel -->
+    <div class="theme-panel">
+        <h3>Choose Theme</h3>
+        <button data-theme="ocean">🌊 Ocean</button>
+        <button data-theme="purple">💜 Purple</button>
+        <button data-theme="emerald">💚 Emerald</button>
+        <button data-theme="crimson">❤️ Crimson</button>
+        <button data-theme="sunset">🌅 Sunset</button>
+        <button data-theme="aurora">✨ Aurora</button>
+        <button data-theme="light">☀️ Light</button>
+    </div>
+
+    <!-- MUSIC CONTROL HUB -->
+    <div id="controlPanel" class="control-panel">
+        <h3>🎵 Experience Controls</h3>
+
+        <div class="music-info">
+            <p>Now Playing:</p>
+            <strong>Snap - Rosa Linn</strong>
+        </div>
+
+        <div class="music-buttons">
+            <button id="playMusic">▶ Play</button>
+            <button id="pauseMusic">⏸ Pause</button>
+        </div>
+
+        <label>🔊 Volume</label>
+        <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.5">
+
+        <hr>
+
+        <h3>🎨 Themes</h3>
+        <button data-theme="ocean">💙 Ocean</button>
+        <button data-theme="purple">💜 Purple</button>
+        <button data-theme="emerald">💚 Emerald</button>
+        <button data-theme="crimson">❤️ Crimson</button>
+        <button data-theme="sunset">🧡 Sunset</button>
+        <button data-theme="aurora">🌈 Aurora</button>
+        <button data-theme="light">☀ Light</button>
+    </div>
+
+    <!--============================
+    LOADER
+    =============================-->
+    <div id="loader">
+        <div class="boot-screen">
+            <h1 class="boot-logo">
+                KING ORMAN SYSTEM
+                <span>v1.0.0</span>
+            </h1>
+
+            <div class="boot-console">
+                <p>> Starting Portfolio Kernel...</p>
+                <p>> Initializing HTML Engine...</p>
+                <p>> Loading CSS Renderer...</p>
+                <p>> Compiling JavaScript Runtime...</p>
+                <p>> Connecting Music Hub...</p>
+                <p>> Activating Theme Engine...</p>
+                <p>> Scanning Projects...</p>
+                <p>> Authenticating Developer...</p>
+                <p>> Access Granted.<br>> Welcome to KING ORMAN Portfolio_</p>
+            </div>
+
+            <div class="progress">
+                <div id="progressBar"></div>
+            </div>
+
+            <div class="boot-percent">
+                <span id="percent">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <!--============================
+    BACKGROUND MUSIC
+    =============================-->
+    <audio id="backgroundMusic" loop>
+        <source src="https://files.catbox.moe/670kxx.mp3" type="audio/mpeg">
+    </audio>
+
+    <!--============================
+    NAVIGATION
+    =============================-->
+    <header class="navbar">
+        <a href="#home" class="logo">K • ORMAN</a>
+
+        <button id="menuBtn" class="menu-btn" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!--============================
+    SYSTEM STATUS BAR
+    =============================-->
+    <div class="system-status-bar">
+        <div class="system-item">
+            📍 Uganda 🇺🇬 <span>Kampala</span>
+        </div>
+        <div class="system-item">
+            🌐 Status <span id="network-status">Checking...</span>
+        </div>
+        <div class="system-item">
+            🕒 <span id="live-time">00:00:00</span>
+        </div>
+        <div class="system-item">
+            📅 <span id="live-date"></span>
+        </div>
+        <div class="system-item">
+            🔋 Battery <span id="battery-level">Loading...</span>
+        </div>
+    </div>
+
+    <!--============================
+    HERO SECTION
+    =============================-->
+    <section id="home" class="hero-section">
+        <div class="hero-banner">
+            <img src="https://files.catbox.moe/rhf2xz.jpg" class="hero-cover" alt="Cover">
+            <div class="profile-wrapper">
+                <img src="https://files.catbox.moe/q2haxu.jpg" class="profile-image" alt="K • ORMAN">
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <h1>Hello, I'm <span>K • ORMAN</span></h1>
+            <h2>I am a <span id="typing"></span></h2>
+            <p>I create modern, responsive and interactive web experiences using creativity, technology and continuous learning.</p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="primary-btn">🚀 View Projects</a>
+                <a href="#contact" class="secondary-btn">📩 Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!--============================
+    ABOUT SECTION
+    =============================-->
+    <section id="about">
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>The developer behind the code.</p>
+        </div>
+
+        <div class="about-container">
+            <div class="about-card">
+                <h3>Who is K • ORMAN?</h3>
+                <p>I'm a passionate web designer and developer who enjoys creating modern, interactive and responsive websites. My journey started with curiosity and the desire to understand how websites work. Every project I build helps me improve, learn new technologies and become a better developer.</p>
+            </div>
+
+            <div class="journey">
+                <h3>My Developer Journey</h3>
+                
+                <div class="timeline-item">
+                    <span>01</span>
+                    <div>
+                        <h4>Started Learning Web Development</h4>
+                        <p>Discovered HTML, CSS and the foundation of building websites.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span>02</span>
+                    <div>
+                        <h4>Explored JavaScript</h4>
+                        <p>Started creating interactive websites and adding functionality.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span>03</span>
+                    <div>
+                        <h4>Building Real Projects</h4>
+                        <p>Created projects like Index HTML and ORMAN Obfuscator.</p>
+                    </div>
+                </div>
+
+                <div class="visitor-card">
+                    <span>👁️ Total Visitors</span>
+                    <span id="visitor-count">0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--============================
+    SKILLS SECTION
+    =============================-->
+    <section id="skills">
+        <div class="section-title">
+            <h2>My Skills</h2>
+            <p>Technologies I use to bring ideas to life.</p>
+        </div>
+
+        <div class="skills-container">
+            <div class="skill-card">
+                <div class="skill-info">
+                    <h3>JavaScript</h3>
+                    <span>50%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress javascript" data-progress="50"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-info">
+                    <h3>HTML</h3>
+                    <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress html" data-progress="85"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-info">
+                    <h3>CSS</h3>
+                    <span>70%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress css" data-progress="70"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--============================
+    PROJECTS SECTION
+    =============================-->
+    <section id="projects">
+        <div class="section-title">
+            <h2>My Projects</h2>
+            <p>Some things I have built.</p>
+        </div>
+
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="assets/images/index-html.png" alt="Index HTML">
+                </div>
+                <div class="project-content">
+                    <h3>🌐 Index HTML</h3>
+                    <p>A modern responsive website showcasing clean UI design and interactive features.</p>
+                    <div class="tech-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-buttons">
+                        <a href="https://index-html-eight-psi.vercel.app/" target="_blank" class="demo-btn">🚀 Live Demo</a>
+                        <a href="https://whatsapp.com/channel/0029VasAQRiGk1FtXGUz5T2V" target="_blank" class="code-btn">💻 Source</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://orman-obfuscator.vercel.app/" alt="ORMAN Obfuscator">
+                </div>
+                <div class="project-content">
+                    <h3>🔒 ORMAN Obfuscator</h3>
+                    <p>A JavaScript tool designed to transform and protect code.</p>
+                    <div class="tech-tags">
+                        <span>JavaScript</span>
+                        <span>Security</span>
+                        <span>Tool</span>
+                    </div>
+                    <a href="https://orman-obfuscator.vercel.app/" target="_blank" class="demo-btn">View Project 🚀</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--============================
+    CONTACT SECTION
+    =============================-->
+    <section id="contact">
+        <div class="section-title">
+            <h2>Connect With Me</h2>
+            <p>Let's build something amazing together.</p>
+        </div>
+
+        <div class="featured-badge" id="featuredBadge">🚀 FEATURED PROJECT</div>
+        <div id="fireworks-container"></div>
+
+        <div class="social-container">
+            <a href="https://tiktok.com/@drepressed_boi.256" target="_blank" class="social-card tiktok">
+                <i class="fa-brands fa-tiktok"></i>
+                <div>
+                    <h3>TikTok</h3>
+                    <p>Follow Me</p>
+                </div>
+            </a>
+
+            <a href="https://www.instagram.com/p/C3E0jkSIjDWIwpQ6rCa8LaE-O6sgMx9Zq8sgmg0/?igsh=ZjFkYzMzMDQzZg==" target="_blank" class="social-card instagram">
+                <i class="fa-brands fa-instagram"></i>
+                <div>
+                    <h3>Instagram</h3>
+                    <p>Follow my journey</p>
+                </div>
+            </a>
+
+            <a href="https://t.me/theking256" target="_blank" class="social-card telegram">
+                <i class="fa-brands fa-telegram"></i>
+                <div>
+                    <h3>Telegram</h3>
+                    <p>@theking256</p>
+                </div>
+            </a>
+
+            <a href="https://wa.me/256704291969" target="_blank" class="social-card whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+                <div>
+                    <h3>WhatsApp</h3>
+                    <p>Chat with me</p>
+                </div>
+            </a>
+
+            <a href="mailto:kubuyaorman87@gmail.com" class="social-card email">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                    <h3>Email</h3>
+                    <p>kubuyaorman87@gmail.com</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!--============================
+    FOOTER
+    =============================-->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>K • ORMAN</h2>
+                <p>Building digital experiences with creativity, curiosity and code.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <a href="mailto:kubuyaorman87@gmail.com">📧 kubuyaorman87@gmail.com</a>
+                <a href="https://wa.me/256704291969">💚 WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 KING ORMAN. Built with ❤️ and myself.</p>
+        </div>
+    </footer>
+
+    <!--============================
+    SCRIPTS
+    =============================-->
+    <script src="data/profile.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/ai.js"></script>
+</body>
+
+</html>
